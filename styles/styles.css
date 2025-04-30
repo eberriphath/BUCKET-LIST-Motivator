@@ -5,15 +5,17 @@ body {
     padding: 0;
   }
 
-  
+
   h1 {
     text-align: center;
-    color: antiquewhite;
+    color: #171730;
   }
 
   .glass-container {
-    height: 150px;
-    width: 300px;
-    background: linear-gradient(to right,#f88973,#171730,rgb(82, 68, 53));
-    backdrop-filter: blur(10px)
+  height: 150px;
+  width: 300px;
+  background: rgba(248, 137, 115, 0.5); 
+  backdrop-filter: blur(10px);
+  border-radius: 15px; 
+  padding: 20px;
   }
