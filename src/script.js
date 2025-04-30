@@ -1,5 +1,5 @@
 const quotes = [
-    "You’re doing better than you think.",
+  "You’re doing better than you think.",
   "Keep going — your dreams are cheering for you!",
   "Every small step counts. Keep stepping.",
   "You’ve got this. Seriously.",
@@ -59,7 +59,7 @@ const quotes = [
   "Small victories are still victories.",
   "Be gentle with yourself — you're doing enough.",
   "You are more than capable.",
-  "Even tiny actions move mountains.",
+  "Even tiny faith moves mountains.",
   "Stay patient. Trust the magic you’re making.",
   "What you’re doing today matters tomorrow.",
   "You are worthy of your wildest dreams.",
@@ -86,10 +86,10 @@ const quotes = [
   "You already have everything you need inside you.",
   "Be kind to yourself along the way.",
   "There’s no timeline — only your timeline.",
-  "Trust yourself to make it happen.",
+  "Trust GOD to make it happen.",
   "One brave step at a time.",
   "You’re becoming someone incredible.",
-  "Keep the faith in yourself strong.",
+  "Keep the faith strong.",
   "Your journey matters — every step of it.",
   "Don’t give up — your dreams are counting on you.",
   "Keep believing. Keep moving.",
@@ -100,3 +100,4 @@ const quotes = [
   "Your light is unstoppable.",
   "Keep dreaming, keep daring, keep doing."
 ]
+
