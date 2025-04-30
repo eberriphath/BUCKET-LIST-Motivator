@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(to bottom right, #f88973, #171730,rgb(82, 68, 53));
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  
+  h1 {
+    text-align: center;
+    color: antiquewhite;
+  }
+
+  .glass-container {
+    height: 150px;
+    width: 300px;
+    background: linear-gradient(to right,#f88973,#171730,rgb(82, 68, 53));
+    backdrop-filter: blur(10px)
+  }
