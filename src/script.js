@@ -1,3 +1,26 @@
+
+const taskInput = document.querySelector('input[type="text"]');
+const addButton = document.querySelector('button');
+
+const mainContainer = document.createElement('div');
+mainContainer.classList.add('main-container');
+document.body.appendChild(mainContainer);
+
+const taskList = document.createElement('ul');
+const quoteDisplay = document.createElement('div');
+mainContainer.appendChild(taskList);
+mainContainer.appendChild(quoteDisplay);
+
+
+taskList.style.padding = '20px';
+taskList.style.fontSize = '1.2em';
+
+quoteDisplay.style.fontSize = '1.5em';
+quoteDisplay.style.color = '#f88973';
+quoteDisplay.style.marginTop = '20px';
+quoteDisplay.style.textAlign = 'center';
+
+// Motivational quotes array
 const quotes = [
   "You’re doing better than you think.",
   "Keep going — your dreams are cheering for you!",
@@ -21,84 +44,51 @@ const quotes = [
   "Keep aiming for the stars — you’re closer than ever.",
   "You’re stronger than any obstacle.",
   "One day, you’ll be so glad you kept going.",
-  "Every dream starts exactly where you are.",
-  "Let’s celebrate your courage today!",
-  "Growth happens quietly — trust it.",
-  "Keep building. You're making magic.",
-  "Your future self is already proud.",
-  "Every sunrise is a new beginning.",
-  "You've got the heart of a champion.",
-  "Courage looks good on you.",
-  "Little steps create big dreams.",
-  "Every action you take is an act of hope.",
-  "Keep daring, keep dreaming.",
-  "You're more powerful than your doubts.",
-  "Trust yourself — you've made it this far.",
-  "You don’t have to be perfect, just persistent.",
-  "You were made for this.",
-  "Your dreams chose you for a reason.",
-  "Don’t rush the process. Good things are growing.",
-  "Let your hope be bigger than your fear.",
-  "You've already won half the battle by starting.",
-  "It’s okay to take it one breath at a time.",
-  "You are someone’s inspiration.",
-  "Each step forward deserves a celebration.",
-  "Your dreams are lucky to have you.",
-  "You make hard work look easy.",
-  "There’s magic in not giving up.",
-  "The best is yet to come — keep building!",
-  "You’re exactly where you need to be.",
-  "Even slow progress is progress.",
-  "Your energy creates your future.",
-  "Every finish line was once invisible.",
-  "Celebrate the courage it took to begin.",
-  "Trust the journey — it’s shaping you.",
-  "A little progress each day adds up.",
-  "Believe in your ability to figure things out.",
-  "Your story is unfolding beautifully.",
-  "Small victories are still victories.",
-  "Be gentle with yourself — you're doing enough.",
-  "You are more than capable.",
-  "Even tiny faith moves mountains.",
-  "Stay patient. Trust the magic you’re making.",
-  "What you’re doing today matters tomorrow.",
-  "You are worthy of your wildest dreams.",
-  "One day you'll look back and smile at this moment.",
   "Let today be another brick in your masterpiece.",
-  "Trust your process, honor your pace.",
-  "You are doing an incredible job.",
-  "Stay steady. Stay bold.",
-  "Big achievements are made from tiny actions.",
-  "You are closer than you realize.",
-  "Hope grows stronger when you nurture it.",
-  "There's strength in every struggle.",
-  "You shine brighter than your fears.",
-  "Keep watering your dreams.",
-  "You were born to make an impact.",
-  "Courage doesn’t always roar — sometimes it whispers 'try again.'",
-  "You’re doing the best you can — and that’s enough.",
-  "Be proud of the quiet work you’re doing.",
-  "Little by little becomes a lot.",
-  "Stay focused — your future is bright.",
-  "Keep going — you’re almost there!",
-  "You’re worthy of the life you're building.",
-  "It’s a good day to keep dreaming.",
-  "You already have everything you need inside you.",
-  "Be kind to yourself along the way.",
-  "There’s no timeline — only your timeline.",
-  "Trust GOD to make it happen.",
-  "One brave step at a time.",
-  "You’re becoming someone incredible.",
-  "Keep the faith strong.",
   "Your journey matters — every step of it.",
-  "Don’t give up — your dreams are counting on you.",
-  "Keep believing. Keep moving.",
-  "Your growth is something to celebrate.",
-  "Each new day brings new chances.",
-  "You are stronger than yesterday.",
+  "Courage doesn’t always roar — sometimes it whispers 'try again.'",
+  "You already have everything you need inside you.",
   "Stay hopeful — you’re closer than ever.",
-  "Your light is unstoppable.",
+  "Even slow progress is progress.",
+  "You are doing an incredible job.",
+  "One brave step at a time.",
+  "Your growth is something to celebrate.",
+  "Celebrate the courage it took to begin.",
+  "You're more powerful than your doubts.",
+  "Don’t give up — your dreams are counting on you.",
   "Keep dreaming, keep daring, keep doing."
-]
+];
+
+
+function getRandomQuote() {
+  const index = Math.floor(Math.random() * quotes.length);
+  return quotes[index];
+}
+
+
+function addTask() {
+  const taskText = taskInput.value.trim();
+  if (taskText === '') return;
+
+  const newTask = document.createElement('li');
+  newTask.textContent = taskText;
+
+  taskList.appendChild(newTask);
+  taskInput.value = '';
+
+  displayMotivationalQuote();
+}
+
+function displayMotivationalQuote() {
+  const quote = getRandomQuote();
+  quoteDisplay.textContent = quote;
+}
+
+addButton.addEventListener('click', addTask);
+
+
+
+
+
 
 

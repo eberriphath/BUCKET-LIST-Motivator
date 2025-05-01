@@ -146,6 +146,7 @@ body {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
+  margin-top: 100px;
 }
 
 .nav-link {
@@ -240,4 +241,9 @@ body {
   color: #f88973;
   font-size: 1.2em;
   text-decoration: none;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 150px;
 }
