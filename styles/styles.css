@@ -1,31 +1,7 @@
-
-body {
-  background: linear-gradient(to bottom right, #f88973, #171730, rgb(82, 68, 53));
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-
 h1 {
   text-align: center;
-  color: #171730;
+  color: #fafafa;
 }
-
-
-.glass-container {
-  height: 150px;
-  width: 300px;
-  background: rgba(248, 137, 115, 0.5); 
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
 
 .button {
   display: inline-block;
@@ -43,6 +19,8 @@ h1 {
 }
 
 .nav-container {
+  display: flex;
+  justify-content: space-evenly;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
@@ -53,7 +31,7 @@ h1 {
   text-decoration: none;
   font-size: 20px;
   padding: 10px;
-  margin: 0 15px;
+  margin: 15px;
   transition: color 0.3s;
 }
 
@@ -157,6 +135,10 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
+  background: linear-gradient(to bottom right, #f88973, #171730, rgb(82, 68, 53));
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navigation Bar */
@@ -179,7 +161,7 @@ body {
   color: #f88973;
 }
 
-/* Contact Section Styling */
+
 .contact-section {
   padding: 50px 20px;
   text-align: center;
@@ -213,7 +195,7 @@ body {
   background-color: #fff;
   color: #171730;
   padding: 15px;
-  margin: 10px 0;
+  margin: 10px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -225,11 +207,6 @@ body {
   text-decoration: none;
   font-size: 1.2em;
   margin-top: 5px;
-  transition: color 0.3s ease;
-}
-
-.contact-link:hover {
-  color: #171730;
 }
 
 .info-description {
@@ -263,9 +240,4 @@ body {
   color: #f88973;
   font-size: 1.2em;
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.social-link:hover {
-  color: #171730;
 }
