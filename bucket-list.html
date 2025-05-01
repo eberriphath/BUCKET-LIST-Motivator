@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,42 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="./src/script.js" defer></script>
 </head>
+
 <body>
-    <section>
+    
+    <section class="nav-container">
         <div>
-            <a href="./index.html">HOME</a>
+            <a href="./index.html" class="nav-link">HOME</a>
+        </div>
+        <div>
+            <a href="./bucket-list.html" class="nav-link">My Bucket List</a>
         </div>
     </section>
-            <h1>My Bucket List</h1>
-            <input type="text" placeholder="Add a new task..."/>
-            <button>Add Task</button>
-    <section>
-        <form></form>
+
+    
+    <section id="home" class="home-section">
+        <h1>Welcome to Bucket-List-Motivator</h1>
+        <p>Get inspired to complete your bucket list with motivational quotes and track your progress!</p>
     </section>
+
+    
+    <section id="bucket-list" class="bucket-list-section">
+        <h1>My Bucket List</h1>
+
+       
+        <section class="input-section">
+            <input type="text" id="new-task" placeholder="Add a new task..." class="task-input" />
+            <button class="add-task-btn" onclick="addTask()">Add Task</button>
+        </section>
+
+       
+        <section class="tasks-section">
+            <ul id="task-list" class="task-list">
+                
+            </ul>
+        </section>
+    </section>
+
 </body>
+
 </html>
