@@ -1,26 +1,12 @@
+const taskInput = document.getElementById('new-task');
+const addButton = document.querySelector('.add-task-btn');
+const taskList = document.getElementById('task-list');
+const quoteDisplay = document.getElementById('quote-display');
+const showCompletedBtn = document.getElementById('show-completed-btn');
+const clearAllBtn = document.getElementById('clear-all-btn');
 
-const taskInput = document.querySelector('input[type="text"]');
-const addButton = document.querySelector('button');
+let tasks = JSON.parse(localStorage.getItem('bucketTasks')) || [];
 
-const mainContainer = document.createElement('div');
-mainContainer.classList.add('main-container');
-document.body.appendChild(mainContainer);
-
-const taskList = document.createElement('ul');
-const quoteDisplay = document.createElement('div');
-mainContainer.appendChild(taskList);
-mainContainer.appendChild(quoteDisplay);
-
-
-taskList.style.padding = '20px';
-taskList.style.fontSize = '1.2em';
-
-quoteDisplay.style.fontSize = '1.5em';
-quoteDisplay.style.color = '#f88973';
-quoteDisplay.style.marginTop = '20px';
-quoteDisplay.style.textAlign = 'center';
-
-// Motivational quotes array
 const quotes = [
   "You’re doing better than you think.",
   "Keep going — your dreams are cheering for you!",
@@ -59,32 +45,91 @@ const quotes = [
   "Keep dreaming, keep daring, keep doing."
 ];
 
-
 function getRandomQuote() {
   const index = Math.floor(Math.random() * quotes.length);
   return quotes[index];
 }
 
+function displayMotivationalQuote() {
+  quoteDisplay.textContent = getRandomQuote();
+}
+
+function saveTasks() {
+  localStorage.setItem('bucketTasks', JSON.stringify(tasks));
+}
+
+function renderTasks(showOnlyCompleted = false) {
+  taskList.innerHTML = '';
+  const filteredTasks = showOnlyCompleted
+    ? tasks.filter(task => task.completed)
+    : tasks;
+
+  filteredTasks.forEach((task, index) => {
+    const taskItem = document.createElement('li');
+    taskItem.classList.add('task-item');
+
+    const taskText = document.createElement('span');
+    taskText.textContent = task.text;
+    taskText.classList.add('task-text');
+    if (task.completed) taskText.classList.add('completed');
+
+    const actionsDiv = document.createElement('div');
+    actionsDiv.classList.add('task-actions');
+
+    const completeBtn = document.createElement('button');
+    completeBtn.textContent = '✔';
+    completeBtn.className = 'complete-btn';
+    completeBtn.onclick = () => {
+      tasks[index].completed = !tasks[index].completed;
+      saveTasks();
+      renderTasks(showOnlyCompleted); 
+      displayMotivationalQuote(); 
+    };
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '✖';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.onclick = () => {
+      tasks.splice(index, 1);
+      saveTasks();
+      renderTasks(showOnlyCompleted); 
+      displayMotivationalQuote(); 
+    };
+
+    actionsDiv.appendChild(completeBtn);
+    actionsDiv.appendChild(deleteBtn);
+
+    taskItem.appendChild(taskText);
+    taskItem.appendChild(actionsDiv);
+    taskList.appendChild(taskItem);
+  });
+}
 
 function addTask() {
-  const taskText = taskInput.value.trim();
-  if (taskText === '') return;
+  const text = taskInput.value.trim();
+  if (text === '') return;
 
-  const newTask = document.createElement('li');
-  newTask.textContent = taskText;
-
-  taskList.appendChild(newTask);
+  tasks.push({ text, completed: false });
+  saveTasks();
+  renderTasks();
   taskInput.value = '';
-
   displayMotivationalQuote();
 }
 
-function displayMotivationalQuote() {
-  const quote = getRandomQuote();
-  quoteDisplay.textContent = quote;
+function clearAllTasks() {
+  if (confirm('Are you sure you want to delete ALL tasks?')) {
+    tasks = [];
+    saveTasks();
+    renderTasks();
+    displayMotivationalQuote();
+  }
 }
 
 addButton.addEventListener('click', addTask);
+showCompletedBtn.addEventListener('click', () => renderTasks(true)); 
+clearAllBtn.addEventListener('click', clearAllTasks);
+
+window.addEventListener('DOMContentLoaded', () => renderTasks()); 
 
 
 

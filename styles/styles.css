@@ -247,3 +247,40 @@ h3 {
   text-align: center;
   margin-top: 150px;
 }
+
+.task-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.control-btn {
+  padding: 10px 15px;
+  background-color: #171730;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.control-btn:hover {
+  background-color: #f88973;
+}
+
+.quote-display {
+  font-size: 1.3em;
+  color: #f88973;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+
